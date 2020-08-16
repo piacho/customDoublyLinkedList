@@ -1,6 +1,7 @@
 package programmingExecise.implementation.utils;
 
 public interface LinkedListManipulation<T> {
-     public void addElement(T element);
+     void addElementFront(T element);
+     void addElementEnd(T element);
      T getElement();
 }

@@ -3,6 +3,7 @@ package programmingExecise.implementation.utils;
 public class Node<T> {
 
     private T data;
+    private Node<T> previousNode;
     private Node<T> nextNode;
 
     public Node(T data) {
@@ -29,6 +30,17 @@ public class Node<T> {
     public Node<T> getNextNode(){
         return nextNode;
     }
+
+    //TODO possibly to add getters and setters for the previousNode
+
+    public void setPreviousNode(Node previousNode){
+        this.previousNode = previousNode;
+    }
+
+    public Node<T> getPreviousNode(){
+        return previousNode;
+    }
+
 
 
 }
