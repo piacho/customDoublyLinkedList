@@ -1,8 +1,10 @@
-package programmingExecise.implementation;
+package com.greg.programmingexercise.list.impl;
 
-import programmingExecise.implementation.utils.*;
+import com.greg.programmingexercise.list.utils.DoublyLinkedListAnalysis;
+import com.greg.programmingexercise.list.utils.DoublyLinkedListManipulation;
+import com.greg.programmingexercise.list.utils.Node;
 
-public class DLG<T> implements LinkedListAnalysis, LinkedListManipulation<T> {
+public class DoublyDoublyDoublyLinkedListImpl<T> implements DoublyLinkedListAnalysis, DoublyLinkedListManipulation<T> {
 
     private Node<T> head = null;
     private Node<T> tail = null;
@@ -13,8 +15,8 @@ public class DLG<T> implements LinkedListAnalysis, LinkedListManipulation<T> {
     }
 
     @Override
-    public int size() {
-        int size = isEmpty() ? 0 : 1;
+    public long size() {
+        long size = isEmpty() ? 0 : 1;
         Node<T> node = this.head;
         if (!isEmpty()) {
             while (node.getNextNode() != null) {
