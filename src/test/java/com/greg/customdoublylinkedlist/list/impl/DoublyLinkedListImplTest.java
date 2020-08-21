@@ -1,21 +1,17 @@
-package programmingExercise.implementation;
-
-//TODO check if I need to have these import - seems to be the same package.
+package com.greg.customdoublylinkedlist.list.impl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import programmingExecise.implementation.DLG;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+public class DoublyLinkedListImplTest {
 
-public class DLGTest {
-
-    static DLG list;
+    private DoublyDoublyDoublyLinkedListImpl list;
 
     @BeforeEach
     public void setup() {
-        list = new DLG();
+        list = new DoublyDoublyDoublyLinkedListImpl();
     }
 
     @Test
@@ -35,11 +31,6 @@ public class DLGTest {
     @Test
     public void newElementsCanBeAddedToTheEndOfTheList() {
 
-        assertAll(
-                () -> assertEquals(0, list.size()),
-                () -> assertTrue(list.isEmpty())
-        );
-
         list.addElementEnd(1);
         list.addElementEnd(2);
         list.addElementEnd(3);
@@ -53,11 +44,6 @@ public class DLGTest {
     @Test
     public void newElementsCanBeAddedToTheFrontOfTheList() {
 
-        assertAll(
-                () -> assertEquals(0, list.size()),
-                () -> assertTrue(list.isEmpty())
-        );
-
         list.addElementFront(1);
         list.addElementFront(2);
         list.addElementFront(3);
@@ -68,17 +54,14 @@ public class DLGTest {
         );
     }
 
-
     @Test
     public void elementsAddedToEndCanBeRetrievedFromTheListInACorrectOrder() {
 
-        assertTrue(list.isEmpty());
         list.addElementEnd(1);
         list.addElementEnd(2);
         list.addElementEnd(3);
         list.addElementEnd(4);
         list.addElementEnd(5);
-
 
         assertAll(
 
@@ -93,7 +76,6 @@ public class DLGTest {
     @Test
     public void elementsAddedToFrontCanBeRetrievedFromTheListInACorrectOrder() {
 
-        assertTrue(list.isEmpty());
         list.addElementFront(1);
         list.addElementFront(2);
         list.addElementFront(3);
@@ -111,14 +93,9 @@ public class DLGTest {
     }
 
     @Test
-    public void elementsRetirevedFromListAreDeleted() {
+    public void elementsRetrievedFromListAreDeleted() {
 
-        DLG<String> list1 = new DLG<>();
-
-        assertAll(
-                () -> assertTrue(list.isEmpty()),
-                () -> assertTrue(list1.isEmpty())
-        );
+        DoublyDoublyDoublyLinkedListImpl<String> list1 = new DoublyDoublyDoublyLinkedListImpl<>();
 
         String[] data = {"a", "b", "c", "d", "e", "f"};
 
@@ -162,14 +139,18 @@ public class DLGTest {
     @Test
     public void listWorksWithMultipleDataTypes() {
 
-        DLG list1 = new DLG();
         list.addElementEnd(1);
-        list.addElementFront(2);
-        list1.addElementEnd("a");
-        list1.addElementFront("b");
+        list.addElementFront("a");
+        list.addElementEnd(3l);
+        list.addElementFront(12.5d);
+        list.addElementEnd(9.87f);
+
         assertAll(
+                () -> assertEquals(Double.class, list.getElement().getClass()),
+                () -> assertEquals(String.class, list.getElement().getClass()),
                 () -> assertEquals(Integer.class, list.getElement().getClass()),
-                () -> assertEquals(String.class, list1.getElement().getClass())
+                () -> assertEquals(Long.class, list.getElement().getClass()),
+                () -> assertEquals(Float.class, list.getElement().getClass())
         );
     }
 }

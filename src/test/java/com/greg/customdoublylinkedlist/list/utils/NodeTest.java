@@ -1,10 +1,8 @@
-package programmingExercise.implementation.utils;
+package com.greg.customdoublylinkedlist.list.utils;
 
 import org.junit.jupiter.api.Test;
-import programmingExecise.implementation.utils.Node;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 
 public class NodeTest {
 
@@ -18,6 +16,7 @@ public class NodeTest {
 
     @Test
     public void nodeIsCreatedSuccessfullyAndCanHoldMultipleDataTypes() {
+
         Node<Integer> nodeI = new Node<>(testDataI);
         Node<String> nodeS = new Node<>(testDataS);
 
@@ -29,8 +28,10 @@ public class NodeTest {
 
     @Test
     public void nextNodeIsNullByDefault() {
+
         Node<Integer> nodeI = new Node<>(testDataI);
         Node<String> nodeS = new Node<>(testDataS);
+
         assertAll(
                 () -> assertNull(nodeI.getNextNode()),
                 () -> assertNull(nodeS.getNextNode())
@@ -39,8 +40,10 @@ public class NodeTest {
 
     @Test
     public void previousNodeIsNullByDefault() {
+
         Node<Integer> nodeI = new Node<>(testDataI);
         Node<String> nodeS = new Node<>(testDataS);
+
         assertAll(
                 () -> assertNull(nodeI.getPreviousNode()),
                 () -> assertNull(nodeS.getPreviousNode())
@@ -49,6 +52,7 @@ public class NodeTest {
 
     @Test
     public void dataIsSuccessfullyReadFromNodes() {
+
         Node<Integer> nodeI = new Node<>(testDataI);
         Node<Integer> nextNodeI = new Node<>(testDataI1);
         Node<Integer> previousNodeI = new Node<>(testDataI2);
@@ -68,7 +72,6 @@ public class NodeTest {
                 () -> assertEquals(testDataI2, nodeI.getPreviousNode().getData()),
                 () -> assertEquals(testDataS1, nodeS.getNextNode().getData()),
                 () -> assertEquals(testDataS2, nodeS.getPreviousNode().getData())
-
         );
     }
 }
